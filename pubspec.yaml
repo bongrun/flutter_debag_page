@@ -1,8 +1,8 @@
-name: flutter_debag_page
+name: flutter_debug_page
 description: Debug page
-version: 1.0.1
-author: Vlad Pasechnik
-homepage: https://github.com/bongrun/flutter_debag_page
+version: 1.0.3
+homepage: https://github.com/bongrun
+repository: https://github.com/bongrun/flutter_debug_page
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
