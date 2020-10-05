@@ -41,4 +41,8 @@ abstract class AbstractDebugRepository {
   Future<void> setProxyUsed(bool proxyUsed) async {
     (await SharedPreferences.getInstance()).setBool('proxy_used', proxyUsed);
   }
+
+  Future<bool> isActive() async {
+    return false;
+  }
 }

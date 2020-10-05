@@ -33,13 +33,16 @@ class DebugBloc extends Bloc<DebugEvent, DebugState> {
   Stream<DebugState> mapEventToState(DebugEvent event) async* {
     if (event is DebugInitEvent) {
       proxyUsedChange();
-      detector = ShakeDetector.autoStart(
-          shakeSlopTimeMS: 5000,
-          onPhoneShake: () {
-            if (state is DebugHideState || (state is DebugShowState && DateTime.now().difference((state as DebugShowState).openTime).inSeconds > 10)) {
-              add(DebugOpenEvent());
-            }
-          });
+      if (await debugRepository.isActive()) {
+        detector = ShakeDetector.autoStart(shakeSlopTimeMS: 5000, onPhoneShake: () {
+          if (state is DebugHideState || (state is DebugShowState && DateTime
+              .now()
+              .difference((state as DebugShowState).openTime)
+              .inSeconds > 10)) {
+            add(DebugOpenEvent());
+          }
+        });
+      }
     }
     if (event is DebugOpenEvent) {
       yield DebugShowState(openTime: DateTime.now());
