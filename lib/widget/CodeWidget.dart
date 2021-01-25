@@ -36,9 +36,10 @@ class _CodeWidgetState extends State<CodeWidget> {
       child: Column(
         children: <Widget>[
           PinCodeTextField(
+              appContext: context,
               length: 4,
               autoFocus: true,
-              obsecureText: false,
+              obscureText: false,
               animationType: AnimationType.fade,
               pinTheme: PinTheme(
                 shape: PinCodeFieldShape.box,
@@ -50,10 +51,12 @@ class _CodeWidgetState extends State<CodeWidget> {
               mainAxisAlignment:MainAxisAlignment.spaceEvenly,
               animationDuration: Duration(milliseconds: 300),
                 errorAnimationController: errorController,
-              textInputType: TextInputType.phone,
+              keyboardType: TextInputType.phone,
               onCompleted: (code) {
                 BlocProvider.of<DebugBloc>(context).add(DebugCodeEvent(code: code));
               },
+              onChanged: (value) {
+              }
           )
         ],
       ),

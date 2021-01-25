@@ -1,6 +1,6 @@
 name: flutter_debug_page
 description: Debug page
-version: 1.0.4
+version: 1.1.0
 homepage: https://github.com/bongrun
 repository: https://github.com/bongrun/flutter_debug_page
 
@@ -13,9 +13,9 @@ dependencies:
   http_proxy: ^1.1.0
   shake: ^0.1.0
   flutter_bloc: ^4.0.0
-  get: ^2.10.2
-  shared_preferences: ^0.5.8
-  pin_code_fields: ^3.0.1
+  get: ^3.24.0
+  shared_preferences: ^0.5.12+4
+  pin_code_fields: ^6.0.1
 
 dev_dependencies:
   flutter_test:
